@@ -1,0 +1,44 @@
+<%-include('nav.ejs')%>
+<form action="/admin/savecategory" method="post">
+    <div class="container-fluid bg-white p-3">
+        <h3>Add New Category</h3>
+        <div class="row">
+            <div class="col-md-6">
+                <label>Enter Category Name</label>
+                <input type="text" class="form-control" name="category_name">
+            </div>
+            <div class="col-md-6 text-end">
+                <br>
+                <button class="btn btn-dark">SAVE CATEGORY</button>
+            </div>
+        </div>
+    </div>
+</form>
+<br>
+<br>
+<div class="container-fluid bg-white p-3">
+    <h3>Category List</h3>
+    <div class="row">
+        <div class="col-md-12">
+            <table class="table table-bordered">
+                <tr>
+                    <th>Action</th>
+                    <th>SN</th>
+                    <th>Category Name</th>
+                </tr>
+                <% for(i=0;i<cat_list.length;i++) { %>
+                    <tr>
+                        <th>
+                            <button class="btn btn-primary btn-sm"><i class="fa fa-edit"></i></button>
+                            <button class="btn btn-danger  btn-sm"><i class="fa fa-trash"></i></button>
+                        </th>
+                        <th><%=i+1%></th>
+                        <th><%=cat_list[i].category_name%></th>
+                    </tr>
+                <% } %>
+            </table>
+        </div>
+    </div>
+</div>
+
+<%-include('footer.ejs')%>

@@ -1,0 +1,42 @@
+<%-include('nav.ejs')%>
+
+<div class="container-fluid bg-white p-3">
+    <div class="row">
+        <div class="col-md-12">
+            <h3>Customer List</h3>
+        </div>
+        <div class="col-md-12 mb-3">
+            <table class="table table-bordered table-sm">
+                <tr>
+                    <th>Action</th>
+                    <th>SN</th>
+                    <th>Name</th>
+                    <th>Mobile</th>
+                    <th>Address</th>
+                    <th>Due Amt</th>
+                </tr>
+                <% 
+                for(i=0;i<cust_lsit.length;i++)
+                {
+                    %>
+                    <tr>
+                        <td>
+                            <button class="btn btn-primary btn-sm"><i class="fa fa-edit"></i></button>
+                            <button class="btn btn-danger  btn-sm"><i class="fa fa-trash"></i></button>
+                        </td>
+                        <td><%=i+1%></td>
+                        <td><%=cust_lsit[i].customer_name%></td>
+                        <td><%=cust_lsit[i].customer_mobile%></td>
+                        <td><%=cust_lsit[i].customer_address%></td>
+                        <td><%=cust_lsit[i].due_payment%></td>
+                    </tr>
+                    <%
+                }
+                %>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+<%-include('footer.ejs')%>

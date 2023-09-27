@@ -1,0 +1,48 @@
+<%-include('nav.ejs')%>
+<form action="/admin/savetable" method="post" enctype="multipart/form-data"> 
+    <div class="container-fluid bg-white p-3">
+        <div class="row">
+            <div class="col-md-12">
+                <h3>Add New Table</h3>
+            </div>
+            <div class="col-md-4 mb-3">
+                <b>Enter Table Name</b>
+                <input type="text" name="table_name" class="form-control">
+            </div>
+            <div class="col-12 mb-3 text-end">
+                <button class="btn btn-primary">SAVE DISH</button>
+            </div>
+        </div>
+    </div>
+</form>
+
+<div class="container-fluid bg-white p-3">
+    <h3>Table List</h3>
+    <div class="row">
+        <div class="col-md-12">
+            <table class="table table-bordered">
+                <tr>
+                    <th>Action</th>
+                    <th>SN</th>
+                    <th>Table Name</th>
+                    <th>Status</th>
+                </tr>
+                <% for(i=0;i<table_list.length;i++) { %>
+                    <tr>
+                        <th>
+                            <button class="btn btn-primary btn-sm"><i class="fa fa-edit"></i></button>
+                            <button class="btn btn-danger  btn-sm"><i class="fa fa-trash"></i></button>
+                        </th>
+                        <th><%=i+1%></th>
+                        <th><%=table_list[i].table_name%></th>
+                        <th><%=table_list[i].status%></th>
+                    </tr>
+                <% } %>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+
+<%-include('footer.ejs')%>

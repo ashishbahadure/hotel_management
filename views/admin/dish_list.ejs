@@ -1,0 +1,40 @@
+<%-include('nav.ejs')%>
+
+<div class="container-fluid bg-white p-3">
+    <div class="row">
+        <div class="col-md-12">
+            <h3>Dish List</h3>
+        </div>
+        <div class="col-md-12 mb-3">
+            <table class="table table-bordered table-sm">
+                <tr>
+                    <th>Action</th>
+                    <th>SN</th>
+                    <th>Category</th>
+                    <th>Dish</th>
+                    <th>Price</th>
+                </tr>
+                <% 
+                for(i=0;i<dishes.length;i++)
+                {
+                    %>
+                    <tr>
+                        <td>
+                            <button class="btn btn-primary btn-sm"><i class="fa fa-edit"></i></button>
+                            <button class="btn btn-danger  btn-sm"><i class="fa fa-trash"></i></button>
+                        </td>
+                        <td><%=i+1%></td>
+                        <td><%=dishes[i].category_name%></td>
+                        <td><%=dishes[i].dish_name%></td>
+                        <td>&#8377; <%=dishes[i].dish_price%>/-</td>
+                    </tr>
+                    <%
+                }
+                %>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+<%-include('footer.ejs')%>
